@@ -55,6 +55,7 @@
     <Compile Include="TestInterpretAnchor.cs" />
     <Compile Include="TestInterpretGrouping.cs" />
     <Compile Include="TestInterpretOptions.cs" />
+    <Compile Include="TestCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RegexTest\RegexTest.csproj">
