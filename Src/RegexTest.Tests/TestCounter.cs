@@ -11,7 +11,7 @@ namespace RegexWorkbench.Tests
 		public void TestCounter_Construction_DoesNotResultInAnyElapsedTime()
 		{
 			Counter c = new Counter(new MockPerformanceCounter(100, 1));
-			Assert.AreEqual(0.0f, c.Seconds);
+			Assert.AreEqual(TimeSpan.Zero, c.ElapsedTime);
 		}
 
 		[Test]
@@ -19,7 +19,7 @@ namespace RegexWorkbench.Tests
 		{
 			Counter c = new Counter(new MockPerformanceCounter(100, 1));
 			c.Start();
-			Assert.AreEqual(0.0f, c.Seconds);
+			Assert.AreEqual(TimeSpan.Zero, c.ElapsedTime);
 		}
 
 		[Test]
@@ -28,7 +28,7 @@ namespace RegexWorkbench.Tests
 			Counter c = new Counter(new MockPerformanceCounter(100, 1));
 			c.Start();
 			c.Stop();
-			Assert.AreEqual(0.0f, c.Seconds);
+			Assert.AreEqual(TimeSpan.Zero, c.ElapsedTime);
 		}
 
 		[Test]
@@ -43,7 +43,7 @@ namespace RegexWorkbench.Tests
 			perfCounter.Value = initialValue + 2;
 			c.Stop();
 
-			Assert.AreEqual(2.0f, c.Seconds);
+			Assert.AreEqual(TimeSpan.FromSeconds(2), c.ElapsedTime);
 		}
 
 		[Test]
@@ -63,7 +63,7 @@ namespace RegexWorkbench.Tests
 			perfCounter.Value = initialValue + 6;
 			c.Stop();
 
-			Assert.AreEqual(3.0f, c.Seconds);
+			Assert.AreEqual(TimeSpan.FromSeconds(3), c.ElapsedTime);
 		}
 
 		private class MockPerformanceCounter : IPerformanceCounter

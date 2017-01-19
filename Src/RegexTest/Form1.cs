@@ -1456,7 +1456,7 @@ namespace RegexTest
 				counter.Start();
 				regex = CreateRegex();
 				counter.Stop();
-				this.CompileTime.Text = counter.Seconds.ToString();
+				this.CompileTime.Text = counter.ElapsedTime.ToString();
 			}
 			catch (Exception ex)
 			{
@@ -1498,7 +1498,7 @@ namespace RegexTest
 					}
 				}
 				counter.Stop();
-				Elapsed.Text = String.Format("{0:f2}", counter.Seconds);
+				Elapsed.Text = String.Format("{0:f2}", counter.ElapsedTime.TotalSeconds);
 
 				m = regex.Match(s);
 				bool noMatch = true;

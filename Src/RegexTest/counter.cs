@@ -34,17 +34,11 @@ namespace Timing
 			elapsedCount = 0;
 		}
 
-		public float Seconds
-		{
-			get
-			{
-				return ((float)elapsedCount / (float)counter.GetFrequency());
-			}
-		}
+		public TimeSpan ElapsedTime => TimeSpan.FromSeconds((float)elapsedCount / (float)counter.GetFrequency());
 
 		public override string ToString()
 		{
-			return String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0} seconds", Seconds);
+			return String.Format(System.Globalization.CultureInfo.InvariantCulture, "{0} seconds", ElapsedTime.TotalSeconds);
 		}
 	}
 
